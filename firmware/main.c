@@ -914,26 +914,15 @@ void StartTask03(void const * argument)		// Task Telemetry rx: Euler + BNO_Statu
 			  /*	Rx		*/
 			rxEuler_toTelemetry = (bno055_euler_f_t*)rxEuler_event.value.p;
 			memcpy(&txEuler_global, rxEuler_toTelemetry, sizeof(bno055_euler_f_t));
+			
+			int16_t dyaw_difference = txEuler_global.heading - pre_dyaw;
 
+			if (dyaw_difference > 180)  dyaw_difference -= 360;
+			if (dyaw_difference < -180) dyaw_difference += 360;
 
-	        if (txEuler_global.heading < pre_dyaw)// CNT: 359 -> 1 overflow
-	        {
-	            dyaw_difference = (int16_t)((((int)txEuler_global.heading + 180 - (int)(pre_dyaw)+359+1) % 360) - 180);
+			dyaw_proc -= (float)dyaw_difference;
 
-	            dyaw_proc -= (float)dyaw_difference;
-	        }
-
-	        else if (txEuler_global.heading > pre_dyaw)// CNT: 1 -> 359 underflow
-	        {
-	            dyaw_difference = (int16_t)(((int)txEuler_global.heading + 180 - (int)pre_dyaw) % (360) - 180);
-	            dyaw_proc -= (float)dyaw_difference;
-	        }
-	        else
-	        {
-	            dyaw_difference = 0;
-
-	        }
-	        pre_dyaw = txEuler_global.heading;
+			pre_dyaw = txEuler_global.heading;
 
 			if (sent == 1)
 			{
