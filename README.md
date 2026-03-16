@@ -12,7 +12,7 @@ The project implements a modular real-time drone control system including **sens
 
 Real-time attitude data (roll, pitch, yaw) streamed from the STM32 flight controller to the ground station GUI via UART telemetry.
 
-https://github.com/QuanNguyenMinh1/RTOS_Drone_Firmware/issues/1#issue-4080069678
+https://github.com/user-attachments/assets/da196a46-692f-4f65-aa03-bfd4d7b0f096
 
 ### Roll / Pitch Control Response
 Demonstration of roll and pitch stabilization response during manual testing.
