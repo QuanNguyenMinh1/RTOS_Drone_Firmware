@@ -19,7 +19,7 @@ Demonstration of roll and pitch stabilization response during manual testing.
 
 Hardware response:
 
-https://youtube.com/shorts/CnKSQ-TkWs8?feature=share
+https://github.com/user-attachments/assets/1368bca3-bbc4-46f1-91d7-cc979dabc98f
 
 Telemetry visualization:
 
