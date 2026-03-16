@@ -51,7 +51,7 @@ The system is divided into several real-time tasks:
 | **Barometer Task** | Reads altitude data from barometer (BMP280) |
 | **Control Task** | Executes PID stabilization loop |
 | **Receiver Decode Task** | Decodes FlySky iBus receiver data |
-| **Telemetry Task** | Sends acceleration + gyroscope + Euler data to ground station GUI |
+| **Telemetry Task** | Sends acceleration + gyroscope + Euler data to ground station GUI via DMA|
 
 Inter-task communication is implemented using **FreeRTOS mail queues**.
 
