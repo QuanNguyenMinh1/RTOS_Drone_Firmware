@@ -1,49 +1,121 @@
-# RTOS Drone Firmware
+# RTOS Quadcopter Flight Controller
 
-Firmware for a quadcopter flight controller implemented on **STM32F4** using **FreeRTOS**.
+Firmware for a **quadcopter flight controller** implemented on **STM32F4** using **FreeRTOS**.
 
-This project implements the core components of a drone control system including sensor drivers, communication interfaces, and real-time control loops.
-
----
-
-## Features
-
-- STM32F4-based flight controller firmware
-- FreeRTOS task-based architecture
-- PID-based attitude stabilization
-- IMU sensor integration
-- iBus receiver communication
-- BLDC motor control via PWM
-- Modular driver architecture
-
----
-
-## System Architecture
-
-The firmware is organized into several modules:
+The project implements a modular real-time drone control system including **sensor drivers, flight stabilization algorithms, receiver communication, and telemetry interface**.
 
 ---
 
 ## Hardware Platform
 
-- MCU: **STM32F410RBTx**
-- Sensors: **IMU (accelerometer + gyroscope)**
-- Motors: **Brushless DC motors with ESC**
-- Receiver: **FlySky iBus**
+- **MCU:** STM32F410RBTx
+- **IMU:** BNO055 (Accelerometer + Gyroscope + Sensor Fusion)
+- **Barometer:** BMP280
+- **Motors:** Brushless DC motors with ESC
+- **Receiver:** FlySky iBus (FS-iA6B)
+- **Communication:** UART telemetry interface
+- **Battery Monitoring:** ADC voltage measurement
 
 ---
 
-## RTOS Tasks
+## System Architecture
 
-Example tasks used in the system:
+The firmware is built using a **FreeRTOS task-based architecture** where each subsystem runs independently.
 
-- **MPU Task** – Reads IMU data
-- **Control Task** – Runs PID stabilization loop and updates motor PWM outputs
-- **Receiver Decode Task** – Handles receiver input
-- **Telemetry Task** – Communicates with tuning GUI
-- **Filter Task** – 
-- **Barometer Task** – Updates barometer output
-- **Euler Task** – Updates Euler angles (roll, pitch, yaw) on Gui
+### Data Flow
+
+IMU (BNO055) + Barometer (BMP280)
+↓
+Sensor Filtering (Low Pass + EKF)
+↓
+Attitude Estimation (Euler angles)
+↓
+PID Flight Controller
+↓
+Motor Mixing
+↓
+ESC PWM Output
+
+
+---
+
+## FreeRTOS Tasks
+
+The system is divided into several real-time tasks:
+
+| Task | Function |
+|-----|------|
+| **MPU Task** | Reads IMU acceleration and gyroscope data (~1kHz) |
+| **Euler Task** | Reads Euler angles from IMU sensor (BNO055) |
+| **Filter Task** | Fuses accelerometer and barometer data using EKF |
+| **Barometer Task** | Reads altitude data from barometer (BMP280) |
+| **Control Task** | Executes PID stabilization loop |
+| **Receiver Decode Task** | Decodes FlySky iBus receiver data |
+| **Telemetry Task** | Sends acceleration + gyroscope + Euler data to ground station GUI |
+
+Inter-task communication is implemented using **FreeRTOS mail queues**.
+
+---
+
+## Control System
+
+The flight controller uses **nested PID loops**:
+
+### Attitude Control
+Angle PID (Outer Loop)
+↓
+Angular Rate PID (Inner Loop)
+
+### Yaw Control
+Heading Hold PID
+or
+Yaw Rate PID
+
+### Altitude Estimation
+
+Altitude is estimated by fusing:
+
+- **Barometer (BMP280)**
+- **Accelerometer Z-axis**
+
+using an **Extended Kalman Filter (EKF)**.
+
+---
+
+## Features
+
+- STM32F4 real-time flight controller firmware
+- FreeRTOS multitasking architecture
+- IMU + Barometer sensor fusion
+- Extended Kalman Filter for altitude estimation
+- PID-based flight stabilization
+- FlySky iBus receiver decoding
+- ESC calibration and motor arming logic
+- UART DMA telemetry interface
+- Battery voltage monitoring
+- Modular driver architecture
+
+---
+
+## Firmware Structure
+RTOS_Drone_Firmware
+│
+├── communication
+│ └── ibus
+│
+├── control
+│ └── pid
+│
+├── drivers
+│ ├── imu
+│ ├── bldc
+│ └── barometer
+│
+├── firmware
+│ └── main.c
+│
+└── README.md
+
 ---
 
 ## Project Goals
@@ -51,9 +123,10 @@ Example tasks used in the system:
 This project was developed to practice:
 
 - Embedded firmware architecture
-- Real-time control systems
+- Real-time systems with FreeRTOS
 - Sensor integration
-- RTOS-based embedded design
+- Control systems for robotics
+- Drone flight controller design
 
 ---
 
