@@ -37,11 +37,13 @@ The firmware is organized into several modules:
 
 Example tasks used in the system:
 
-- **Sensor Task** – Reads IMU data
-- **Control Task** – Runs PID stabilization loop
-- **Communication Task** – Handles receiver input
-- **Motor Task** – Updates motor PWM outputs
-
+- **MPU Task** – Reads IMU data
+- **Control Task** – Runs PID stabilization loop and updates motor PWM outputs
+- **Receiver Decode Task** – Handles receiver input
+- **Telemetry Task** – Communicates with tuning GUI
+- **Filter Task** – 
+- **Barometer Task** – Updates barometer output
+- **Euler Task** – Updates Euler angles (roll, pitch, yaw) on Gui
 ---
 
 ## Project Goals
