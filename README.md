@@ -12,7 +12,7 @@ The project implements a modular real-time drone control system including **sens
 
 Real-time attitude data (roll, pitch, yaw) streamed from the STM32 flight controller to the ground station GUI via UART telemetry.
 
-https://youtube.com/shorts/O2XJOq_KRWs?feature=share
+[![Euler Angle Telemetry](https://img.youtube.com/vi/O2XJQq_KRWs/0.jpg)](https://youtu.be/O2XJQq_KRWs)
 
 ### Roll / Pitch Control Response
 Demonstration of roll and pitch stabilization response during manual testing.
