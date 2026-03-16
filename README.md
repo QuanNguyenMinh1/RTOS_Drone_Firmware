@@ -6,6 +6,16 @@ The project implements a modular real-time drone control system including **sens
 
 ---
 
+## Demo
+
+### Euler Angle Telemetry (Ground Station GUI)
+
+Real-time attitude data (roll, pitch, yaw) streamed from the STM32 flight controller to the ground station GUI via UART telemetry.
+
+https://youtube.com/shorts/O2XJOq_KRWs?feature=share
+
+---
+
 ## Hardware Platform
 
 - **MCU:** STM32F410RBTx
