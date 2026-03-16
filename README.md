@@ -98,25 +98,26 @@ using an **Extended Kalman Filter (EKF)**.
 ---
 
 ## Firmware Structure
+
+```
 RTOS_Drone_Firmware
 │
 ├── communication
-│ └── ibus
+│   └── ibus
 │
 ├── control
-│ └── pid
+│   └── pid
 │
 ├── drivers
-│ ├── imu
-│ ├── bldc
-│ └── barometer
+│   ├── imu
+│   ├── bldc
+│   └── barometer
 │
 ├── firmware
-│ └── main.c
+│   └── main.c
 │
 └── README.md
-
----
+```
 
 ## Project Goals
 
