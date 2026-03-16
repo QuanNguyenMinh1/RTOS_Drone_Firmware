@@ -38,6 +38,7 @@ Early flight test demonstrating basic motor control and stabilization behavior.
 https://youtu.be/DUdOFClbhr0
 
 Note: This footage was recorded during an early development phase before further control tuning and filtering improvements were implemented.
+
 ---
 
 ## Hardware Platform
