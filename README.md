@@ -25,6 +25,19 @@ Telemetry visualization:
 
 https://youtu.be/wwBK6YbCQGs
 
+### IMU Calibration (Tripod Test)
+
+Sensor calibration test while the drone is mounted on a tripod.
+
+https://youtu.be/2brUX-lan2c
+
+### Initial Flight Test
+
+Early flight test demonstrating basic motor control and stabilization behavior.
+
+https://youtu.be/DUdOFClbhr0
+
+Note: This footage was recorded during an early development phase before further control tuning and filtering improvements were implemented.
 ---
 
 ## Hardware Platform
