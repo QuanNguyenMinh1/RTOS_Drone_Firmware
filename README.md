@@ -23,7 +23,7 @@ The project implements a modular real-time drone control system including **sens
 The firmware is built using a **FreeRTOS task-based architecture** where each subsystem runs independently.
 
 ### Data Flow
-
+```
 IMU (BNO055) + Barometer (BMP280)
 ↓
 Sensor Filtering (Low Pass + EKF)
@@ -35,7 +35,7 @@ PID Flight Controller
 Motor Mixing
 ↓
 ESC PWM Output
-
+```
 
 ---
 
