@@ -23,7 +23,7 @@ https://github.com/user-attachments/assets/1368bca3-bbc4-46f1-91d7-cc979dabc98f
 
 Telemetry visualization:
 
-https://youtu.be/wwBK6YbCQGs
+https://github.com/user-attachments/assets/e09e2c2f-f8a7-475e-bf13-837773b70299
 
 ### IMU Calibration (Tripod Test)
 
