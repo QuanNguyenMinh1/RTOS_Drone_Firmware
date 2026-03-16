@@ -14,6 +14,17 @@ Real-time attitude data (roll, pitch, yaw) streamed from the STM32 flight contro
 
 https://youtube.com/shorts/O2XJOq_KRWs?feature=share
 
+### Roll / Pitch Control Response
+Demonstration of roll and pitch stabilization response during manual testing.
+
+Hardware response:
+
+https://youtube.com/shorts/CnKSQ-TkWs8?feature=share
+
+Telemetry visualization:
+
+https://youtu.be/wwBK6YbCQGs
+
 ---
 
 ## Hardware Platform
